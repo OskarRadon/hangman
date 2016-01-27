@@ -7,6 +7,9 @@ describe('gameWords', function() {
   it("generates random word from words array", function() {
     expect(typeof gameWords.generateWord(gameWords.words)).to.equal("string");
   });
+  it("splits chosenword into array of letters", function(){
+    expect(typeof gameWords.chosenWord[0]).to.equal("string");
+  });
 });
 
 // have computer choose random word from array
