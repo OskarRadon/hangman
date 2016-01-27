@@ -4,7 +4,11 @@ describe('gameWords', function() {
       expect(gameWords.words[0]).to.eql("cat");
       expect(gameWords.words[1]).to.eql("man");
   });
+  it("generates random word from words array", function() {
+    expect(typeof gameWords.generateWord(gameWords.words)).to.equal("string");
+  });
 });
+
 // have computer choose random word from array
 // display random word as blanks
 // make array of letters
