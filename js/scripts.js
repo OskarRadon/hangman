@@ -1,1 +1,3 @@
-var words = ["cat", "man"];
+var gameWords = {
+  words: ["cat", "man"],
+};

@@ -1,8 +1,8 @@
 // make array of words for computer to choose from
-describe('word', function() {
+describe('gameWords', function() {
   it("takes an array of words", function() {
-      expect(words[0]).to.eql("cat");
-      expect(words[1]).to.eql("man");
+      expect(gameWords.words[0]).to.eql("cat");
+      expect(gameWords.words[1]).to.eql("man");
   });
 });
 // have computer choose random word from array
