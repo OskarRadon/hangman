@@ -31,10 +31,12 @@ function checkState() {
 $(document).ready(function() {
   $("#letters-div a").click(function(e){
     var letterInput = $(e.target).text();
-    console.log(letterInput);
-    // userGuess.push(letterInput);
+    userGuess.push(letterInput);
+    return userGuess;
   });
+
 });
+
 
 // gameWords.generateWord(gameWords.words);
 // gameWords.prototype.generateWord = function() {
