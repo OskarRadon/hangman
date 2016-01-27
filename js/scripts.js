@@ -1,15 +1,16 @@
 var words = ["cat", "man", "hat", "car", "mat", "yak"];
 var counter = 0;
 var userGuess = [];
+var results = [];
 
 function generateWord(words) {  //chooses word from array
   var wordIndex = Math.floor(6 * Math.random());
-  return words[wordIndex];
+  return words[wordIndex].split('');
 };
 
-function splitWord() {
-  var results = generateWord(words).split(''); //splits word into results array of letters
-};
+// function splitWord() {
+//   var results = generateWord(words).split(''); //splits word into results array of letters
+// };
 
 function compareWords() {
   var arrayContainsLetter = (results.indexOf("a") > -1); //if user input is in results array = true
@@ -29,12 +30,20 @@ function checkState() {
 }
 
 $(document).ready(function() {
+  $("form#hangman").submit(function(event) {
+
+  var newWord = generateWord(words);
+  console.log(newWord);
+  for (i=0; i < newWord.length; i++) {
+    $("#Result").append("_ ");
+  }
   $("#letters-div a").click(function(e){
     var letterInput = $(e.target).text();
-    userGuess.push(letterInput);
-    return userGuess;
+    var guesses = newWord.indexOf(letterInput);
+    console.log(guesses);
   });
-
+  event.preventDefault();
+ });
 });
 
 
