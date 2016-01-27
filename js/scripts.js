@@ -31,16 +31,20 @@ function checkState() {
 
 $(document).ready(function() {
   $("form#hangman").submit(function(event) {
-
+  var blankArray = [];
   var newWord = generateWord(words);
   console.log(newWord);
   for (i=0; i < newWord.length; i++) {
-    $("#Result").append("_ ");
+    blankArray.push("_ ");
   }
+  $("#Result").html(blankArray);
   $("#letters-div a").click(function(e){
     var letterInput = $(e.target).text();
-    var guesses = newWord.indexOf(letterInput);
-    console.log(guesses);
+    var guess = newWord.indexOf(letterInput);
+    if (guess !== -1) {
+      
+      $("#Result").html(newWord.splice(guess, 1, letterInput));
+    };
   });
   event.preventDefault();
  });
