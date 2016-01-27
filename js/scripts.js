@@ -1,17 +1,40 @@
 var words = ["cat", "man", "hat", "car", "mat", "yak"];
-var chosenWord = [];
+var counter = 0;
+var userGuess = [];
 
-function generateWord(words) {
+function generateWord(words) {  //chooses word from array
   var wordIndex = Math.floor(6 * Math.random());
   return words[wordIndex];
 };
 
-function splitWord(word) {
-  var split = gameWords.generateWord(gameWords.words).split();
-  chosenWord.push(split);
-  return chosenWord;
+function splitWord() {
+  var results = generateWord(words).split(''); //splits word into results array of letters
 };
 
+function compareWords() {
+  var arrayContainsLetter = (results.indexOf("a") > -1); //if user input is in results array = true
+  counter += 1;
+  return arrayContainsLetter;
+}
+
+function checkState() {
+  var gameState;
+  if ((counter < 7) && (userGuess === results)) {
+  gameState = "win";
+  } else if ((counter < 7) && (userGuess != results)) {
+  // do nothing
+  } else {
+  gameState = "loss";
+  }
+}
+
+$(document).ready(function() {
+  $("#letters-div a").click(function(e){
+    var letterInput = $(e.target).text();
+    console.log(letterInput);
+    // userGuess.push(letterInput);
+  });
+});
 
 // gameWords.generateWord(gameWords.words);
 // gameWords.prototype.generateWord = function() {
