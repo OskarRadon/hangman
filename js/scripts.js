@@ -42,8 +42,8 @@ $(document).ready(function() {
     var letterInput = $(e.target).text();
     var guess = newWord.indexOf(letterInput);
     if (guess !== -1) {
-      
-      $("#Result").html(newWord.splice(guess, 1, letterInput));
+      blankArray.splice(guess, 1, letterInput);
+      $("#Result").html(blankArray);
     };
   });
   event.preventDefault();
