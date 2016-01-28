@@ -20,19 +20,15 @@ Hangman.prototype.searchBlanks = function(letterInput) {
   console.log(wrongGuess);
   if (wrongGuess === -1) {
     counter = counter + 1;
-    return true;
-    if (counter > 6) {
-      return false;
-    }
   }
   return counter;
 };
 
-Hangman.prototype.replaceLetter = function() {
+Hangman.prototype.replaceLetter = function(letterInput) {
   for(var j=0; j < newWord.length; j++) {
     var guess = newWord.indexOf(letterInput, j);
     if (guess !== -1) {
-      blankArray.splice(guess, 1, letterInput);
+      newHangman.blankArray.splice(guess, 1, letterInput);
     }
   }
 };
@@ -49,23 +45,17 @@ $(document).ready(function() {
   $("#Result").html(newHangman.blankArray);
   $("#letters-div a").click(function(e){
     var letterInput = $(e.target).text();
-    var guesser = newHangman.searchBlanks(letterInput);
-    if (guesser === true) {
+    newHangman.searchBlanks(letterInput);
+    if (counter < 6) {
       $("#myImage").empty();
       $("#myImage").append("<img src='img/" + (counter+1) + ".jpg'>");
-    } else if (guesser === false) {
+    }
+    else {
+      $(".message").text("You Lose!!!")
       $("#myImage").empty();
       $("#myImage").append("<img src='img/7.jpg'>");
     }
-    if (counter === 6) {
-      $(".message").text("You Lose!!!")
-    }
-      // for(var j=0; j < newWord.length; j++) {
-      //   var guess = newWord.indexOf(letterInput, j);
-      //   if (guess !== -1) {
-      //     blankArray.splice(guess, 1, letterInput);
-      //   }
-      // }
+    newHangman.replaceLetter(letterInput);
       var win = newHangman.winState();
       if (win === true) {
         $(".message").text("You Win!!!")
