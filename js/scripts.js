@@ -57,14 +57,14 @@ $(document).ready(function() {
       $("#myImage").append("<img src='img/7.jpg'>");
     }
     newHangman.replaceLetter(letterInput);
-      var win = newHangman.winState();
-      if (win === true) {
-        $(".message").text("You Win!!!")
-      }
-      $("#Result").html(newHangman.blankArray);
-    });
-    $("form#hangman").submit(function(event) {
-        window.location.reload();
-        event.preventDefault();
-    });
+    var win = newHangman.winState();
+    if (win === true) {
+      $(".message").text("You Win!!!")
+    }
+    $("#Result").html(newHangman.blankArray);
+  });
+  $("form#hangman").submit(function(event) {
+    window.location.reload();
+    event.preventDefault();
+  });
 });
