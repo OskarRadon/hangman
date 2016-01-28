@@ -1,16 +1,10 @@
 var words = ["cat", "man", "hat", "car", "mat", "yak", "computer", "portland"];
-var counter = 0;
-var userGuess = [];
-var results = [];
+// var counter = 0;  used to check if game is won
 
-function generateWord(words) {  //chooses word from array
+function generateWord() {  //chooses word from array
   var wordIndex = Math.floor(9 * Math.random());
   return words[wordIndex].split('');
 };
-
-// function splitWord() {
-//   var results = generateWord(words).split(''); //splits word into results array of letters
-// };
 
 function compareWords() {
   var arrayContainsLetter = (results.indexOf("a") > -1); //if user input is in results array = true
