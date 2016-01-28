@@ -1,14 +1,17 @@
-var words = ["cat", "internet", "initial", "look", "mat", "yak", "computer", "portland"];
+function WordMaker(words) {
+  this.words = words;
+}
 
-function generateWord() {  //chooses word from array
+WordMaker.prototype.generateWord = function() {  //chooses word from array
   var wordIndex = Math.floor(8 * Math.random());
-  return words[wordIndex].split('');
+  return this.words[wordIndex].split('');
 };
 
 $(document).ready(function() {
     var counter = 0;
     var blankArray = [];
-    var newWord = generateWord(words);
+    var newWord = new WordMaker(["cat", "internet", "initial", "look", "mat", "yak", "computer", "portland"]);
+    newWord.generateWord();
     for (var i=0; i < newWord.length; i++) {
       blankArray.push("_ ");
     }
