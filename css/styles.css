@@ -1,10 +1,14 @@
 body {
   font-size: 20px;
-  background-color: #CFD8D7;
+  background-color: #575033;
+  background-image: url("../img/desert.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 a {
-  color: #122932;
+  font-size: 28px;
+  color: #dd4050;
 }
 
 .jumbotron {
@@ -13,14 +17,16 @@ a {
   text-align: center;
 }
 
-.centered {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  /* bring your own prefixes */
-  transform: translate(-50%, -50%);
+img {
+  max-width: 350px;
 }
 
-.centered img {
-  max-width: 500px;
+button {
+  margin: 10px;
+
+}
+
+#letters-div {
+  text-align: center;
+  padding: 2%;
 }

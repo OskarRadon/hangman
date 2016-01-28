@@ -5,7 +5,7 @@ function Hangman (words, blankArray) {
 
 var newWord;
 var counter = 0;
-var newHangman = new Hangman (["cat", "internet", "initial", "look", "mat", "yak", "computer", "portland"], []);
+var newHangman = new Hangman (["array", "internet", "string", "javascript", "html", "programming", "computer", "portland"], []);
 
 Hangman.prototype.generateBlanks = function() {
   var wordIndex = Math.floor(8 * Math.random());
