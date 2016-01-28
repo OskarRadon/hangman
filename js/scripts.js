@@ -2,6 +2,7 @@ function Hangman (words, blankArray) {
   this.words = words;
   this.blankArray = blankArray;
 };
+
 var newWord;
 var counter = 0;
 var newHangman = new Hangman (["cat", "internet", "initial", "look", "mat", "yak", "computer", "portland"], []);
