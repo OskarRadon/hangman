@@ -40,10 +40,9 @@ $(document).ready(function() {
       $("#Result").html(blankArray);
 
     });
+    $("form#hangman").submit(function(event) {
+        window.location.reload();
+        event.preventDefault();
+    });
 
-
-  });
-$("form#hangman").submit(function(event) {
-    window.location.reload();
-    event.preventDefault();
 });
