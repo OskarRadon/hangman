@@ -34,7 +34,7 @@ $(document).ready(function() {
     $("#Result").html(blankArray);
     $("#letters-div a").click(function(e){
       var letterInput = $(e.target).text();
-      var guess = newWord.indexOf(letterInput);
+      var guess = newWord.indexOf(letterInput);  // put this in a loop
       if (guess !== -1) {
         blankArray.splice(guess, 1, letterInput); //this doesn't work if a word has multiple of the same letter
       }
