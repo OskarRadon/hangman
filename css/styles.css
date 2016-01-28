@@ -1,10 +1,18 @@
 body {
   font-size: 20px;
+  background-color: #CFD8D7;
+}
+
+a {
+  color: #122932;
 }
 
 .jumbotron {
+  color: #BBD1EA;
+  background-color: black;
   text-align: center;
 }
+
 .centered {
   position: fixed;
   top: 50%;
