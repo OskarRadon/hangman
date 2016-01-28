@@ -27,7 +27,7 @@ $(document).ready(function() {
   $("form#hangman").submit(function(event) {
     var blankArray = [];
     var newWord = generateWord(words);
-    console.log(newWord);
+    console.log(newWord); // open the console to see the answer (to test)
     for (i=0; i < newWord.length; i++) {
       blankArray.push("_ ");
     }
@@ -35,7 +35,6 @@ $(document).ready(function() {
     $("#letters-div a").click(function(e){
       var letterInput = $(e.target).text();
       var guess = newWord.indexOf(letterInput);
-      console.log(guess);
       if (guess !== -1) {
         blankArray.splice(guess, 1, letterInput); //this doesn't work if a word has multiple of the same letter
       }
