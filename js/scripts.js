@@ -6,8 +6,6 @@ function generateWord() {  //chooses word from array
 };
 
 $(document).ready(function() {
-
-
     var counter = 0;
     var blankArray = [];
     var newWord = generateWord(words);
