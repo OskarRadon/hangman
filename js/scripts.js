@@ -1,4 +1,4 @@
-var words = ["cat", "man", "hat", "car", "mat", "yak", "computer", "portland"];
+var words = ["cat", "internet", "initial", "look", "mat", "yak", "computer", "portland"];
 // var counter = 0;  used to check if game is won
 
 function generateWord() {  //chooses word from array
@@ -34,12 +34,15 @@ $(document).ready(function() {
     $("#Result").html(blankArray);
     $("#letters-div a").click(function(e){
       var letterInput = $(e.target).text();
-      var guess = newWord.indexOf(letterInput);  // put this in a loop
-      if (guess !== -1) {
-        blankArray.splice(guess, 1, letterInput); //this doesn't work if a word has multiple of the same letter
+      for(j=0; j < newWord.length; j++) {
+        var guess = newWord.indexOf(letterInput, j);  // put this in a loop
+        if (guess !== -1) {
+          blankArray.splice(guess, 1, letterInput); //this doesn't work if a word has multiple of the same letter
+        }
       }
       $("#Result").html(blankArray);
     });
+    event.preventDefault();
   });
-  event.preventDefault();
+
 });
