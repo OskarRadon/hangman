@@ -1,6 +1,5 @@
 var words = ["cat", "internet", "initial", "look", "mat", "yak", "computer", "portland"];
-// var counter = 0;  used to check if game is won
-
+var counter = 0;
 function generateWord() {  //chooses word from array
   var wordIndex = Math.floor(9 * Math.random());
   return words[wordIndex].split('');
@@ -34,12 +33,21 @@ $(document).ready(function() {
     $("#Result").html(blankArray);
     $("#letters-div a").click(function(e){
       var letterInput = $(e.target).text();
+      var wrongGuess = newWord.indexOf(letterInput);
+      if (wrongGuess === -1) {
+        counter = counter + 1;
+        console.log(counter);
+      }
+      if (counter === 6) {
+        console.log("You Lose!");
+      }
       for(j=0; j < newWord.length; j++) {
-        var guess = newWord.indexOf(letterInput, j);  // put this in a loop
+        var guess = newWord.indexOf(letterInput, j);
         if (guess !== -1) {
-          blankArray.splice(guess, 1, letterInput); //this doesn't work if a word has multiple of the same letter
+          blankArray.splice(guess, 1, letterInput);
         }
       }
+      return counter;
       $("#Result").html(blankArray);
     });
     event.preventDefault();
