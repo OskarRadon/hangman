@@ -1,10 +1,10 @@
-function Hangman (words, counter, blankArray) {
+function Hangman (words, blankArray) {
   this.words = words;
-  this.counter = counter;
   this.blankArray = blankArray;
 };
 var newWord;
-var newHangman = new Hangman (["cat", "internet", "initial", "look", "mat", "yak", "computer", "portland"], 0, []);
+var counter = 0;
+var newHangman = new Hangman (["cat", "internet", "initial", "look", "mat", "yak", "computer", "portland"], []);
 
 Hangman.prototype.generateBlanks = function() {
   var wordIndex = Math.floor(8 * Math.random());
@@ -12,17 +12,20 @@ Hangman.prototype.generateBlanks = function() {
   for (var i=0; i < newWord.length; i++) {
     newHangman.blankArray.push("_ ");
   }
+  console.log(newWord);
 };
 
 Hangman.prototype.searchBlanks = function(letterInput) {
   var wrongGuess = newWord.indexOf(letterInput);
+  console.log(wrongGuess);
   if (wrongGuess === -1) {
-    newHangman.counter = newHangman.counter + 1;
+    counter = counter + 1;
     return true;
-    if (newHangman.counter > 6) {
+    if (counter > 6) {
       return false;
     }
   }
+  return counter;
 };
 
 Hangman.prototype.replaceLetter = function() {
@@ -41,25 +44,20 @@ Hangman.prototype.winState = function() {
   }
 };
 
-
-
-
-
 $(document).ready(function() {
   newHangman.generateBlanks();
   $("#Result").html(newHangman.blankArray);
-
   $("#letters-div a").click(function(e){
     var letterInput = $(e.target).text();
-    var search = newHangman.searchBlanks(letterInput);
-    if (newHangman.searchBlanks(letterInput) === true) {
+    var guesser = newHangman.searchBlanks(letterInput);
+    if (guesser === true) {
       $("#myImage").empty();
-      $("#myImage").append("<img src='img/" + (newHangman.counter+1) + ".jpg'>");
-    } else {
+      $("#myImage").append("<img src='img/" + (counter+1) + ".jpg'>");
+    } else if (guesser === false) {
       $("#myImage").empty();
       $("#myImage").append("<img src='img/7.jpg'>");
     }
-    if (newHangman.counter === 6) {
+    if (counter === 6) {
       $(".message").text("You Lose!!!")
     }
       // for(var j=0; j < newWord.length; j++) {
