@@ -9,9 +9,9 @@ var newHangman = new Hangman (["array", "internet", "string", "javascript", "htm
 
 Hangman.prototype.generateBlanks = function() {
   var wordIndex = Math.floor(8 * Math.random());
-  newWord = newHangman.words[wordIndex].split('');
+  newWord = this.words[wordIndex].split('');
   for (var i=0; i < newWord.length; i++) {
-    newHangman.blankArray.push("_ ");
+    this.blankArray.push("_ ");
   }
   console.log(newWord);
 };
@@ -29,13 +29,13 @@ Hangman.prototype.replaceLetter = function(letterInput) {
   for(var j=0; j < newWord.length; j++) {
     var guess = newWord.indexOf(letterInput, j);
     if (guess !== -1) {
-      newHangman.blankArray.splice(guess, 1, letterInput);
+      this.blankArray.splice(guess, 1, letterInput);
     }
   }
 };
 
 Hangman.prototype.winState = function() {
-  var checkWord = newHangman.blankArray.indexOf("_ ");
+  var checkWord = this.blankArray.indexOf("_ ");
   if (checkWord === -1) {
     return true;
   }
